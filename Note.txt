@@ -1,0 +1,60 @@
+let name: string;
+let username: any; // any type
+let username1: unknown;  // same as any type
+let age: number | string; // union, declare both
+let isStudent: boolean; 
+let hobbies: string[]; // declare arr of str
+let role: [number, string]; // declare tuple
+
+================================================================================
+
+// declare function
+let printName: (name: string) => void; // void return undefine
+let printName: (name: string) => number;
+let printName: (name: string) => never; // never dosn't return anything
+
+function printName(name: string) {
+  console.log(name)
+}
+printName('Amit')
+
+================================================================================
+
+* type in ts called as alias
+- Alias is of two type: 
+  a) type and b) interface
+
+################ type ################
+// Declare Obj
+type PersonDetails1 = {
+  name?: string;
+  age?: number;
+}
+
+type PersonDetails2 = PersonDetails1 & {   // to extend other property
+  address?: string;
+  location?: number;
+}
+
+let person: PersonDetails1 = {
+  name: 'Amit',
+  // age: 23
+};
+
+// Declare Array of Obj
+let arrOfPersonObj: PersonDetails1[] = [
+  {
+    name: 'Amit'
+  },
+]
+
+################ interface ################
+interface PersonInfo1 {
+  name?: string;
+  age?: number;
+}
+
+interface PersonInfo2 extends PersonInfo1 {
+  address?: string;
+  location?: string;
+}
